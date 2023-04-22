@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+# emacs
+*~
+# Test files
+tes*
+
 # Object files
 *.o
 *.ko
