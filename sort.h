@@ -35,5 +35,6 @@ void copy_sorted_array(int *array, int *copy, size_t size);
 void count_and_copyarray(int *array, int *count, int *copy_array,
 			 int max, size_t size);
 void counting_sort(int *array, size_t size);
+void copy_sorted_array(int *array, int *sorted, size_t size);
 
 #endif /*SORT_H*/

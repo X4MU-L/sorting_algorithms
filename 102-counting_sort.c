@@ -31,6 +31,7 @@ void counting_sort(int *array, size_t size)
 		return;
 	}
 	count_and_copyarray(array, count, copy_array, max, size);
+	copy_sorted_array(array, copy_array, size);
 	free(count);
 	free(copy_array);
 }
@@ -59,4 +60,19 @@ void count_and_copyarray(int *array, int *count, int *copy_array,
 	print_array(count, max);
 	for (j = (int)size - 1; j >= 0; j--)
 		copy_array[--count[array[j]]] = array[j];
+}
+
+/**
+ * copy_sorted_array - copies the sorted array to the original array
+ * @array: the original array
+ * @sorted: the sorted array
+ * @size: the size of the array
+ * Return: void
+ */
+void copy_sorted_array(int *array, int *sorted, size_t size)
+{
+	size_t i;
+
+	for (i = 0; i < size; i++)
+		array[i] = sorted[i];
 }
