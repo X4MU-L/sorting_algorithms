@@ -28,5 +28,8 @@ void quick_sort(int *array, size_t size);
 int partition(int *array, int start, int end, size_t size);
 void lomuto_quicksort(int *array, int start, int end, size_t size);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void swap_list(listint_t **head, listint_t **tail, listint_t *left,
+	       listint_t *right);
 
 #endif /*SORT_H*/
