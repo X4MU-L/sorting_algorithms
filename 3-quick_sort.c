@@ -10,7 +10,7 @@
 
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size <= 0)
+	if (!array || size < 2)
 		return;
 
 	lomuto_quicksort(array, 0, (int) size - 1, size);
