@@ -31,5 +31,8 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void swap_list(listint_t **head, listint_t **tail, listint_t *left,
 	       listint_t *right);
+void copy_sorted_array(int *array, int *copy, size_t size);
+void count_and_copyarray(int *array, int *count, int *copy_array,
+			 int max, size_t size);
 
 #endif /*SORT_H*/
