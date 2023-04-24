@@ -31,7 +31,6 @@ void counting_sort(int *array, size_t size)
 		return;
 	}
 	count_and_copyarray(array, count, copy_array, max, size);
-	copy_sorted_array(array, copy_array, size);
 	free(count);
 	free(copy_array);
 }
