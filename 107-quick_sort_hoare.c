@@ -1,5 +1,6 @@
 #include "sort.h"
 
+
 /**
  * quick_sort_hoare - sort an array of numbers using hoare quick
  * sorting algorithm
@@ -30,7 +31,7 @@ void hoare_quick_sort(int *array, int start, int end, size_t size)
 
 	if (start >= 0 && end >= 0 && start < end)
 	{
-		idx = partition_hoare(array, start, end, size);
+		idx = partition_hoare(array, start, end);
 		hoare_quick_sort(array, start, idx, size);
 		hoare_quick_sort(array, idx + 1, end, size);
 		print_array(array, size);
@@ -46,7 +47,7 @@ void hoare_quick_sort(int *array, int start, int end, size_t size)
  * @start: the start of array partition
  * Return: int the index of the pivot
  */
-int partition_hoare(int *array, int start, int end, size_t size)
+int partition_hoare(int *array, int start, int end)
 {
 	int pivot;
 	int i = start - 1;
