@@ -40,5 +40,8 @@ void merge_sort(int *array, size_t size);
 void merge_array(int *A, int start, int mid, int end, int *B);
 void top_down_merge(int *copy_array, int start, int end, int *array);
 int *create_copy_array(int *array, size_t size);
+void swap(int *value1, int *value2);
+int partition_hoare(int *array, int start, int end, size_t size);
+void hoare_quick_sort(int *array, int start, int end, size_t size);
 
 #endif /*SORT_H*/
