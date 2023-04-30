@@ -1,7 +1,12 @@
 #include "sort.h"
 
 /**
- * heap_sort: saves a dead man/woman spold have it
+ * heap_sort - sorts an array of integers using a heap tree algorithm
+ * Description: the algoritms sifts the highest element in an array to the
+ * start index/root starting at the last "non-leaf element" - this method
+ * is also know as heapify, when done we loop from the last element swapping
+ * the first (sorted/highest element at this time) with the last and sift the
+ * array on each iteration decrementing the size of the array from the back
  * @array: the array to sort
  * @size: the size of the tree
  *
@@ -23,9 +28,12 @@ void heap_sort(int *array, size_t size)
 	}
 }
 /**
- * max_heapify - reculsively divide-and-conquor
- * @arr: the array to watch you
- * @jega: go and lets verify this all
+ * max_heapify - reculsively sift the max element in an array to
+ * non-leaf position or parent position till root
+ * @arr: the array to sift
+ * @size: the number of elements in @arr
+ * @idx: the index to start sifting
+ * @n: the last index to stop sifting
  * Return: void
  */
 void max_heapify(int *arr, size_t size, int n, int idx)
