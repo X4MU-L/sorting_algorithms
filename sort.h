@@ -46,6 +46,6 @@ int partition_hoare(int *array, int start, int end);
 void hoare_quick_sort(int *array, int start, int end, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void heap_sort(int *array, size_t size);
-void max_heapify(int *arr, int size, int idx);
+void max_heapify(int *arr, size_t len, int size, int idx);
 
 #endif /*SORT_H*/

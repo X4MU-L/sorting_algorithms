@@ -13,14 +13,14 @@ void heap_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	size--;
-	for (num = (int)(size / 2); num >= 0; num--)
-	{
-		print_array(array, 2);
-		max_heapify(array, (int) size, num);
-	}
+	for (num = (int)size / 2; num >= 0; num--)
+		max_heapify(array, size, (int) size - 1, num);
 	for (num = (int) size; num >= 0; num--)
-		max_heapify(array, num, 1);
+	{
+		print_array(array, size);
+		printf("size1 = %ld\n", size);
+		max_heapify(array, size, num - 1, 0);
+	}
 }
 /**
  * max_heapify - reculsively divide-and-conquor
@@ -28,7 +28,7 @@ void heap_sort(int *array, size_t size)
  * @jega: go and lets verify this all
  * Return: void
  */
-void max_heapify(int *arr, int size, int idx)
+void max_heapify(int *arr, size_t len, int size, int idx)
 {
 	int highest = idx, right, left;
 
@@ -39,11 +39,11 @@ void max_heapify(int *arr, int size, int idx)
 		highest = arr[left];
 	if (idx <= size && arr[right] > arr[highest])
 		highest = arr[right];
-	print_array(arr, size);
-	if (highest != idx)
+	if (highest > idx)
 	{
 		swap(&arr[idx], &arr[highest]);
-		max_heapify(arr, size, highest);
+		print_array(arr, len);
+		max_heapify(arr, len, size, highest);
 	}
 
 }
@@ -61,27 +61,4 @@ void swap(int *value1, int *value2)
 	tmp = *value1;
 	*value1 = *value2;
 	*value2 = tmp;
-}
-
-
-#include <stdio.h>
-#include <stdlib.h>
-#include "sort.h"
-
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-    size_t n = sizeof(array) / sizeof(array[0]);
-
-    print_array(array, n);
-    printf("\n");
-    heap_sort(array, n);
-    printf("\n");
-    print_array(array, n);
-    return (0);
 }
