@@ -18,6 +18,21 @@ int get_max(int *array, int size)
 }
 
 /**
+ * copy_array - copys the value of @src to @dest
+ * @src: the array to copy from
+ * @dest: the array to copy to
+ * @size: size to copy
+ * Return: void
+ */
+
+void copy_array(int *src, int *dest, int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+		dest[i] = src[i];
+}
+/**
  * radix_count_sort - sorts an array using a base count indexing
  * Description: the algorithm takes the LSD of each number in the array
  * counts its occurances cumulatively for each index 0 - 9
@@ -40,7 +55,8 @@ void radix_count_sort(int *array, int *copy, int size, int base)
 		count_array[i] = count_array[i] + count_array[i - 1];
 	for (i = size - 1; i >= 0; i--)
 		copy[--count_array[(array[i] / base) % 10]] = array[i];
-	print_array(copy, size);
+	copy_array(copy, array, size);
+	print_array(array, size);
 }
 
 /**
