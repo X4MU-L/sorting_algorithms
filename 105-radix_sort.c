@@ -57,7 +57,8 @@ void radix_count_sort(int *array, int *copy, int size, int base)
 
 void radix_sort(int *array, size_t size)
 {
-	int max, base;
+	int max;
+	size_t base;
 	int *copy;
 
 	if (!array || size < 2)
