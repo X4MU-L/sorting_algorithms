@@ -13,12 +13,12 @@ void heap_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	for (num = (int)size / 2; num >= 0; num--)
-		max_heapify(array, size, (int) size - 1, num);
-	for (num = (int) size; num >= 0; num--)
+	for (num = (size / 2) - 1; num >= 0; num--)
+		max_heapify(array, size, size - 1, num);
+	for (num = size - 1; num > 0; num--)
 	{
+		swap(&array[0], &array[num]);
 		print_array(array, size);
-		printf("size1 = %ld\n", size);
 		max_heapify(array, size, num - 1, 0);
 	}
 }
@@ -28,22 +28,22 @@ void heap_sort(int *array, size_t size)
  * @jega: go and lets verify this all
  * Return: void
  */
-void max_heapify(int *arr, size_t len, int size, int idx)
+void max_heapify(int *arr, size_t size, int n, int idx)
 {
 	int highest = idx, right, left;
 
-	left = (2 * idx) + 1;
-	right = (2 * idx) + 2;
+	left = 2 * idx + 1;
+	right = left + 1;
 
-	if (idx <= size && arr[left] > arr[highest])
-		highest = arr[left];
-	if (idx <= size && arr[right] > arr[highest])
-		highest = arr[right];
-	if (highest > idx)
+	if (left <= n && arr[left] > arr[highest])
+		highest = left;
+	if (right <= n && arr[right] > arr[highest])
+		highest = right;
+	if (highest != idx)
 	{
 		swap(&arr[idx], &arr[highest]);
-		print_array(arr, len);
-		max_heapify(arr, len, size, highest);
+		print_array(arr, size);
+		max_heapify(arr, size, n, highest);
 	}
 
 }
