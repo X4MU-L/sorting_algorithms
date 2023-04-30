@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -44,4 +45,7 @@ void swap(int *value1, int *value2);
 int partition_hoare(int *array, int start, int end);
 void hoare_quick_sort(int *array, int start, int end, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void max_heapify(int *arr, int size, int idx);
+
 #endif /*SORT_H*/
